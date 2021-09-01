@@ -20,9 +20,9 @@ VALUES(10002,  'James', 'New York',sysdate());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE )
 VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
 
-INSERT INTO COURSE (ID, NAME)
-VALUES(10001, 'JPA');
-INSERT INTO COURSE (ID, NAME)
-VALUES(10002, 'JPA2');
-INSERT INTO COURSE (ID, NAME)
-VALUES(10003, 'JPA3');
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10001, 'JPA', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10002, 'JPA2', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10003, 'JPA3', sysdate(), sysdate());

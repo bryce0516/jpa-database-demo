@@ -32,9 +32,14 @@ public class CourseRepository {
     }
     public void playWithEntityManager() {
 
-        Course course = new Course("JPA");
-        em.persist(course);
-        course.setName("JPA - Updated");
+        Course course1 = new Course("JPA -play");
+        em.persist(course1);
+
+        Course course2 = findById(10002L);
+        course2.setName("JPA2");
+        course1.setName("JPA -play");
+
+
 
     }
 

@@ -66,5 +66,6 @@ public class JpaDemoApplication implements CommandLineRunner {
 		logger.info("Course 10001 -> {}", course);
 		repository2.deleteById(10001L);
 		repository2.save(new Course("JPA4"));
+		repository2.playWithEntityManager();
 	}
 }
