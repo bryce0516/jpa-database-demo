@@ -8,6 +8,13 @@ import javax.persistence.Id;
 @Entity
 public class Passport {
 
+  @Id
+  @GeneratedValue
+  private Long id;
+
+  @Column(nullable = false)
+  private String number;
+
   protected Passport() {
 
   }
@@ -16,12 +23,6 @@ public class Passport {
     this.number = number;
   }
 
-  @Id
-  @GeneratedValue
-  private Long id;
-
-  @Column(nullable = false)
-  private String number;
 
   public Long getId() {
     return id;

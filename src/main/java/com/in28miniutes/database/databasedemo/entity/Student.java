@@ -4,10 +4,6 @@ import javax.persistence.*;
 
 @Entity
 public class Student {
-  protected Student() {}
-  public Student(String name){
-    this.name = name;
-  }
 
 
   @Id
@@ -18,6 +14,10 @@ public class Student {
   @OneToOne
   private Passport passport;
 
+  protected Student() {}
+  public Student(String name){
+    this.name = name;
+  }
 
 
   public Passport getPassport() {
