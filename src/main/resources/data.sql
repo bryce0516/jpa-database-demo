@@ -21,11 +21,11 @@ INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE )
 VALUES(10003, 'Pieter', 'Amsterdam',sysdate());
 
 INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
-VALUES(10001, 'JPA', sysdate(), sysdate());
+VALUES(10001, 'JPA in 50 Steps', sysdate(), sysdate());
 INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
-VALUES(10002, 'JPA2', sysdate(), sysdate());
+VALUES(10002, 'Spring in 50 Steps', sysdate(), sysdate());
 INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
-VALUES(10003, 'JPA3', sysdate(), sysdate());
+VALUES(10003, 'Spring Boot in 100 Steps', sysdate(), sysdate());
 
 INSERT INTO PASSPORT (ID, NUMBER)
 VALUES(40001, 'E123456');
@@ -41,9 +41,9 @@ VALUES(20002, 'Adam', 40002);
 INSERT INTO STUDENT (ID, NAME, PASSPORT_ID)
 VALUES(20003, 'Jane', 40003);
 
-INSERT INTO REVIEW (ID, RATING, DESCRIPTION)
-VALUES(50001, '5', 'Great Course1');
-INSERT INTO REVIEW (ID, RATING, DESCRIPTION)
-VALUES(50002, '4', 'Great Course2');
-INSERT INTO REVIEW (ID, RATING, DESCRIPTION)
-VALUES(50003, '3', 'Great Course3');
+INSERT INTO REVIEW (ID, RATING, DESCRIPTION, COURSE_ID)
+VALUES(50001, '5', 'Great Course', 10001);
+INSERT INTO REVIEW (ID, RATING, DESCRIPTION, COURSE_ID)
+VALUES(50002, '4', 'Wonderful Course', 10002);
+INSERT INTO REVIEW (ID, RATING, DESCRIPTION, COURSE_ID)
+VALUES(50003, '3', 'Awesome Course', 10003);

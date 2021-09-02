@@ -11,7 +11,7 @@ public class Student {
   private Long id;
   @Column(nullable = false)
   private String name;
-  @OneToOne
+  @OneToOne(fetch=FetchType.LAZY)
   private Passport passport;
 
   protected Student() {}

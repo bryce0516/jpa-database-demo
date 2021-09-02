@@ -3,6 +3,7 @@ package com.in28miniutes.database.databasedemo;
 
 import com.in28miniutes.database.databasedemo.entity.Course;
 import com.in28miniutes.database.databasedemo.entity.Person;
+import com.in28miniutes.database.databasedemo.entity.Review;
 import com.in28miniutes.database.databasedemo.jdbc.PersonJbdcDao;
 import com.in28miniutes.database.databasedemo.jpa.PersonJpaRepository;
 import com.in28miniutes.database.databasedemo.repository.CourseRepository;
@@ -14,6 +15,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 
  @SpringBootApplication
@@ -40,37 +43,43 @@ public class JpaDemoApplication implements CommandLineRunner {
 //
 //		logger.info("User id 10001 -> {}", dao.findById(10001));
 
-		logger.info("insert id 10004 -> {}",
-				repository.insert(
-						new Person(
-								10005,
-								"Yuny",
-								"Tokyo",
-								new Date()
-						)
-				)
-		);
-		logger.info("update id 10003 -> {}",
-				repository.update(
-						new Person(
-								10003,
-								"Pieter3",
-								"Daejeon",
-								new Date()
-						)
-				)
-		);
-		repository.deleteById(10001);
+//		logger.info("insert id 10004 -> {}",
+//				repository.insert(
+//						new Person(
+//								10005,
+//								"Yuny",
+//								"Tokyo",
+//								new Date()
+//						)
+//				)
+//		);
+//		logger.info("update id 10003 -> {}",
+//				repository.update(
+//						new Person(
+//								10003,
+//								"Pieter3",
+//								"Daejeon",
+//								new Date()
+//						)
+//				)
+//		);
+//		repository.deleteById(10001);
+//
+//		logger.info("All users -> {}", repository.findAll());
+//
+//		Course course = courseRepository.findById(10001L);
+//
+//		logger.info("Course 10001 -> {}", course);
+//		courseRepository.deleteById(10001L);
+//		courseRepository.save(new Course("JPA4"));
+//		courseRepository.playWithEntityManager();
+//
+//		studentRepository.saveStudentWithPassport();
+    List<Review> reviews = new ArrayList<>();
+    reviews.add(new Review("5", "Good job"));
+    reviews.add(new Review("4", "Good job2"));
 
-		logger.info("All users -> {}", repository.findAll());
-
-		Course course = courseRepository.findById(10001L);
-
-		logger.info("Course 10001 -> {}", course);
-		courseRepository.deleteById(10001L);
-		courseRepository.save(new Course("JPA4"));
-		courseRepository.playWithEntityManager();
-
-		studentRepository.saveStudentWithPassport();
+//    courseRepository.addHardcodedReviewsForCourse();
+    courseRepository.addReviewsForCourse(10003L, reviews);
 	}
 }
