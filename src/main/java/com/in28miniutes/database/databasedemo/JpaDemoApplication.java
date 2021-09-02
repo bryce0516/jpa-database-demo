@@ -6,6 +6,7 @@ import com.in28miniutes.database.databasedemo.entity.Person;
 import com.in28miniutes.database.databasedemo.jdbc.PersonJbdcDao;
 import com.in28miniutes.database.databasedemo.jpa.PersonJpaRepository;
 import com.in28miniutes.database.databasedemo.repository.CourseRepository;
+import com.in28miniutes.database.databasedemo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ public class JpaDemoApplication implements CommandLineRunner {
 	 PersonJpaRepository repository;
 
 	@Autowired
-	private CourseRepository repository2;
+  private StudentRepository studentRepository;
+	@Autowired
+	private CourseRepository courseRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpaDemoApplication.class, args);
@@ -61,11 +64,13 @@ public class JpaDemoApplication implements CommandLineRunner {
 
 		logger.info("All users -> {}", repository.findAll());
 
-		Course course = repository2.findById(10001L);
+		Course course = courseRepository.findById(10001L);
 
 		logger.info("Course 10001 -> {}", course);
-		repository2.deleteById(10001L);
-		repository2.save(new Course("JPA4"));
-		repository2.playWithEntityManager();
+		courseRepository.deleteById(10001L);
+		courseRepository.save(new Course("JPA4"));
+		courseRepository.playWithEntityManager();
+
+		studentRepository.saveStudentWithPassport();
 	}
 }

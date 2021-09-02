@@ -14,22 +14,20 @@ import java.time.LocalDateTime;
         }
 )
 
-@NamedQuery(name="query_get_all_courses", query="Select c from Course c")
 public class Course {
 
 
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
-
     @CreationTimestamp
     private LocalDateTime createdDate;
+
     protected Course() {}
+
 
     public Course(String name){
         this.name = name;
