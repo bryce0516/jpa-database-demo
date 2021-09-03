@@ -1,5 +1,6 @@
 package com.in28miniutes.database.databasedemo.repository;
 
+import com.in28miniutes.database.databasedemo.entity.Course;
 import com.in28miniutes.database.databasedemo.entity.Passport;
 import com.in28miniutes.database.databasedemo.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,30 @@ public class StudentRepository {
     passport.setNumber("E123456");
 
     student.setName("Ranga -updated");
+  }
+
+  public void insertHardcodedStudentAndCourse() {
+    Student student = new Student("Jerry");
+    Course course = new Course("Microservices in 100 Steps");
+    em.persist(student);
+    em.persist(course);
+
+    student.addCourse(course);
+    course.addStudent(student);
+
+    em.persist(student);
+
+  }
+
+  public void insertStudentAndCourse(Student student, Course course) {
+//    student = em.find(Student.class, 20001L);
+//
+//    Course course = student.getCourses();
+    student.addCourse(course);
+    course.addStudent(student);
+
+    em.persist(student);
+    em.persist(course);
+
   }
 }

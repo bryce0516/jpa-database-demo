@@ -17,8 +17,6 @@ import java.util.List;
 )
 
 public class Course {
-
-
     @Id
     @GeneratedValue
     private Long id;
@@ -29,12 +27,9 @@ public class Course {
     private LocalDateTime createdDate;
     @OneToMany(mappedBy = "course")
     private List<Review> reviews = new ArrayList<>();
-
-
-
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
     protected Course() {}
-
-
     public Course(String name){
         this.name = name;
     }
@@ -61,8 +56,18 @@ public class Course {
   public void addReview(Review review) {
     this.reviews.add(review);
   }
+
   public void removeReview(Review review) {
     this.reviews.remove(review);
+  }
+
+
+  public List<Student> getStudents() {
+    return students;
+  }
+
+  public void addStudent(Student student) {
+    this.students.add(student);
   }
 
 

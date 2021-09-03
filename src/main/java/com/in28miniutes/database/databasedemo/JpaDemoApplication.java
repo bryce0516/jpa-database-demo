@@ -4,6 +4,7 @@ package com.in28miniutes.database.databasedemo;
 import com.in28miniutes.database.databasedemo.entity.Course;
 import com.in28miniutes.database.databasedemo.entity.Person;
 import com.in28miniutes.database.databasedemo.entity.Review;
+import com.in28miniutes.database.databasedemo.entity.Student;
 import com.in28miniutes.database.databasedemo.jdbc.PersonJbdcDao;
 import com.in28miniutes.database.databasedemo.jpa.PersonJpaRepository;
 import com.in28miniutes.database.databasedemo.repository.CourseRepository;
@@ -75,11 +76,13 @@ public class JpaDemoApplication implements CommandLineRunner {
 //		courseRepository.playWithEntityManager();
 //
 //		studentRepository.saveStudentWithPassport();
-    List<Review> reviews = new ArrayList<>();
-    reviews.add(new Review("5", "Good job"));
-    reviews.add(new Review("4", "Good job2"));
-
+//    List<Review> reviews = new ArrayList<>();
+//    reviews.add(new Review("5", "Good job"));
+//    reviews.add(new Review("4", "Good job2"));
+//
 //    courseRepository.addHardcodedReviewsForCourse();
-    courseRepository.addReviewsForCourse(10003L, reviews);
+//    courseRepository.addReviewsForCourse(10003L, reviews);
+//    studentRepository.insertHardcodedStudentAndCourse();
+    studentRepository.insertStudentAndCourse(new Student("Jerry"), new Course("Microservices in 100 Steps"));
 	}
 }
