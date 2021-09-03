@@ -1,13 +1,11 @@
 package com.in28miniutes.database.databasedemo;
 
 
-import com.in28miniutes.database.databasedemo.entity.Course;
-import com.in28miniutes.database.databasedemo.entity.Person;
-import com.in28miniutes.database.databasedemo.entity.Review;
-import com.in28miniutes.database.databasedemo.entity.Student;
+import com.in28miniutes.database.databasedemo.entity.*;
 import com.in28miniutes.database.databasedemo.jdbc.PersonJbdcDao;
 import com.in28miniutes.database.databasedemo.jpa.PersonJpaRepository;
 import com.in28miniutes.database.databasedemo.repository.CourseRepository;
+import com.in28miniutes.database.databasedemo.repository.EmployeeRepository;
 import com.in28miniutes.database.databasedemo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +14,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -32,6 +31,8 @@ public class JpaDemoApplication implements CommandLineRunner {
   private StudentRepository studentRepository;
 	@Autowired
 	private CourseRepository courseRepository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpaDemoApplication.class, args);
@@ -41,7 +42,6 @@ public class JpaDemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 //		logger.info("All users -> {}", repository.findById(10001));
 
-//
 //		logger.info("User id 10001 -> {}", dao.findById(10001));
 
 //		logger.info("insert id 10004 -> {}",
@@ -83,6 +83,12 @@ public class JpaDemoApplication implements CommandLineRunner {
 //    courseRepository.addHardcodedReviewsForCourse();
 //    courseRepository.addReviewsForCourse(10003L, reviews);
 //    studentRepository.insertHardcodedStudentAndCourse();
-    studentRepository.insertStudentAndCourse(new Student("Jerry"), new Course("Microservices in 100 Steps"));
+//    studentRepository.insertStudentAndCourse(new Student("Jerry"), new Course("Microservices in 100 Steps"));
+    employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
+    employeeRepository.insert(new FullTimeEmployee("Perry", new BigDecimal("10000")));
+//
+//    logger.info("All Employee -> {}", employeeRepository.retrieveAllEmployees());
+    logger.info("All FullTimeEmployee -> {}", employeeRepository.retrieveAllFullTimeEmployees());
+    logger.info("All PartTimeEmployee -> {}", employeeRepository.retrieveAllPartTimeEmployees());
 	}
 }
