@@ -26,6 +26,18 @@ INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
 VALUES(10002, 'Spring in 50 Steps', sysdate(), sysdate());
 INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
 VALUES(10003, 'Spring Boot in 100 Steps', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10004, 'dummy1', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10005, 'dummy2', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10006, 'dummy3', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10007, 'dummy4', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10008, 'dummy5', sysdate(), sysdate());
+INSERT INTO COURSE (ID, NAME, created_Date, last_updated_date)
+VALUES(10009, 'dummy6', sysdate(), sysdate());
 
 INSERT INTO PASSPORT (ID, NUMBER)
 VALUES(40001, 'E123456');
